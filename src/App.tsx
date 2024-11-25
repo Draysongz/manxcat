@@ -33,6 +33,7 @@ import UserContext from "./context/UserContext";
 import Loader from "./components/ui/Loader";
 import IdModal from "./components/IdModal";
 import { useState } from "react";
+import { AudioProvider } from "./context/AudioContext";
 
 function BackButtonHandler() {
   const location = useLocation(); // Use React Router's useLocation to track route changes
@@ -99,8 +100,10 @@ export default function RootApp() {
     <Router>
       <BackButtonHandler /> {/* This handles the back button logic */}
       <UserContext>
-        <Loader />
-        <App />
+        <AudioProvider>
+          <Loader />
+          <App />
+        </AudioProvider>
       </UserContext>
     </Router>
   );
