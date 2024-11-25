@@ -17,43 +17,45 @@ const DailySignIn = () => {
   const {  claimDailyReward, totalEarned, currentDay } =
     useDailyRewards();
 
-    const daily: Daily[] = [
-      {
-        day: t("dailySignIn.days[0]"), // Translation key for DAY 01
-        tag: "day1",
-        amount: 100,
-      },
-      {
-        day: t("dailySignIn.days[1]"), // Translation key for DAY 02
-        tag: "day2",
-        amount: 120,
-      },
-      {
-        day: t("dailySignIn.days[2]"), // Translation key for DAY 03
-        tag: "day3",
-        amount: 140,
-      },
-      {
-        day: t("dailySignIn.days[3]"), // Translation key for DAY 04
-        tag: "day4",
-        amount: 160,
-      },
-      {
-        day: t("dailySignIn.days[4]"), // Translation key for DAY 05
-        tag: "day5",
-        amount: 180,
-      },
-      {
-        day: t("dailySignIn.days[5]"), // Translation key for DAY 06
-        tag: "day6",
-        amount: 200,
-      },
-      {
-        day: t("dailySignIn.days[6]"), // Translation key for DAY 07
-        tag: "day7",
-        amount: 220,
-      },
-    ];
+    
+
+const daily: Daily[] = [
+  {
+    day: (t("dailySignIn.days", { returnObjects: true }) as string[])[0], // Typecast to string[]
+    tag: "day1",
+    amount: 100,
+  },
+  {
+    day: (t("dailySignIn.days", { returnObjects: true }) as string[])[1],
+    tag: "day2",
+    amount: 120,
+  },
+  {
+    day: (t("dailySignIn.days", { returnObjects: true }) as string[])[2],
+    tag: "day3",
+    amount: 140,
+  },
+  {
+    day: (t("dailySignIn.days", { returnObjects: true }) as string[])[3],
+    tag: "day4",
+    amount: 160,
+  },
+  {
+    day: (t("dailySignIn.days", { returnObjects: true }) as string[])[4],
+    tag: "day5",
+    amount: 180,
+  },
+  {
+    day: (t("dailySignIn.days", { returnObjects: true }) as string[])[5],
+    tag: "day6",
+    amount: 200,
+  },
+  {
+    day: (t("dailySignIn.days", { returnObjects: true }) as string[])[6],
+    tag: "day7",
+    amount: 220,
+  },
+];
 
   // Handle claiming a new day
   const handleClaimed = async () => {
