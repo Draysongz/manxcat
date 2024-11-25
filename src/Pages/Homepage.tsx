@@ -77,7 +77,7 @@ export default function Homepage() {
     }
   }
 
-  if (initializing) return <Loader />;
+  // if (initializing) return <Loader />;
   return (
     <Box
       display={"flex"}

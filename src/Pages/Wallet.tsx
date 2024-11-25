@@ -28,21 +28,10 @@ const balances = [
     balance: "120,300.00",
     worth: "$5.90"
   },
-  {
-    coin: "USDT",
-    desc: "Tether USD",
-    balance: "120,300.00",
-    worth: "$5.90"
-  },
+  
   {
     coin: "TON",
     desc: "Toncoin",
-    balance: "120,300.00",
-    worth: "$5.90"
-  },
-  {
-    coin: "NOT",
-    desc: "Notcoin",
     balance: "120,300.00",
     worth: "$5.90"
   }
