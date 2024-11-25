@@ -30,14 +30,14 @@ const Loader = () => {
                     MANX CAT
                 </h1>
             </div>
-            <div className="spinnerContainer p-5 rounded-full bg-[#EFD0CA] mb-12">
+            {/* <div className="spinnerContainer p-5 rounded-full bg-[#EFD0CA] mb-12">
                 <div className="spinner"></div>
                 <img
                     className="centerImage"
                     src="loader-cat.png"  // Your central image
                     alt="Center"
                 />
-            </div>
+            </div> */}
         </main>
     ));
 };
