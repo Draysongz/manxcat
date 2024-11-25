@@ -3,6 +3,7 @@ import InviteButton from "../components/ui/InviteButton";
 import { useUserContext } from "../context/UserContext";
 import { useToast } from "@chakra-ui/react";
 import NavigationBar from "../components/NavigationBar";
+import { useTranslation } from "react-i18next";
 
 interface InviteFriendsProps {
   bigcoin: string;
@@ -10,40 +11,44 @@ interface InviteFriendsProps {
   heading: string;
   desc: string;
 }
-const invitefriends: InviteFriendsProps[] = [
-  {
-    bigcoin: "/friends/bigcoin-friends.svg",
-    heading: "invite friends",
-    smallcoin: "/friends/smallcoin-friends.svg",
-    desc: "200 for you and your friend",
-  },
-  {
-    bigcoin: "/friends/bigcoin-friends.svg",
-    heading: "invite friends with telegram premium",
-    smallcoin: "/friends/smallcoin-friends.svg",
-    desc: "500 for you and your friend",
-  },
-];
+
 
 const Invites = () => {
+  const { t } = useTranslation();
   const { user } = useUserContext();
   const referrals = user?.referrals;
   const invites = referrals?.length;
   const referralCode = user?.referralCode;
   const toast = useToast();
+
+
+  const invitefriends: InviteFriendsProps[] = [
+    {
+      bigcoin: "/friends/bigcoin-friends.svg",
+      heading: "invite friends",
+      smallcoin: "/friends/smallcoin-friends.svg",
+      desc: t("friends.reward"),
+    },
+    {
+      bigcoin: "/friends/bigcoin-friends.svg",
+      heading: "invite friends with telegram premium",
+      smallcoin: "/friends/smallcoin-friends.svg",
+      desc: t("friends.telegramPremium"),
+    },
+  ];
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
         `https://t.me/manxcat_bot?start=${referralCode}`
       );
       toast({
-        title: "Referral link copied successfully",
+        title: t("friends.referralCopied"),
         colorScheme: "green",
         position: "top",
       });
     } catch {
       toast({
-        title: "Error copying referral link, please try again.",
+        title: t("friends.referralCopyError"),
         colorScheme: "red",
         position: "top",
       });
@@ -54,10 +59,10 @@ const Invites = () => {
       <div className="flex flex-col items-center px-5 space-y-3 mb-12">
         <div className="mt-5">
           <h1 className="text-center font-extrabold text-4xl mb-3 text-[#fefeff]">
-            {invites} FRIENDS
+            {t("friends.inviteTitle", { invites })}
           </h1>
           <p className="text-center text-sm font-bold">
-            Invite a friend and get bonuses
+            {t("friends.inviteDescription")}
           </p>
         </div>
         <div className="w-full flex flex-col justify-center items-center gap-3">
@@ -108,7 +113,7 @@ const Invites = () => {
           </div>
         </div>
         <div className="w-full flex justify-between items-center gap-4">
-          <InviteButton name="INVITE FRIENDS" className="" />
+          <InviteButton name={t("friends.inviteButton")} className="" />
           <div
             className="bg-[#F15B061A] py-4 px-5 rounded-full border border-[#EB8A90]"
             onClick={handleCopy}

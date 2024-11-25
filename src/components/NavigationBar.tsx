@@ -6,6 +6,7 @@ import {
 } from "@chakra-ui/react"
 import "../index.css"
 import { Link, useLocation } from "react-router-dom"
+import { useTranslation } from "react-i18next";
 
 interface NavItemProps {
     icon: React.ReactNode;
@@ -31,62 +32,53 @@ const NavItem: React.FC<NavItemProps> = ({
 
 const NavigationBar: React.FC = () => {
     const location = useLocation();
-    return(
-        <nav>
-            <Box
-            bgColor={'#EFD0CA'}
-            width={'100%'}
-            display={'flex'}
-            alignItems={'center'}
-            justifyContent={'center'}
-            position={'fixed'}
-            bottom={0}
-            right={0}
-            zIndex={40}
+     const { t } = useTranslation();
+    return (
+      <nav>
+        <Box
+          bgColor={"#EFD0CA"}
+          width={"100%"}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          position={"fixed"}
+          bottom={0}
+          right={0}
+          zIndex={40}
         >
-                <NavItem 
-                    icon={
-                        <Image src="/home.png" className="w-6 h-auto"/>
-                    }
-                    label="HOME"
-                    isActive={location.pathname === "/"}
-                    to="/"
-                />
-                <NavItem 
-                    icon={
-                        <Image src="/task.png" className="w-6 h-auto"/>
-                    }
-                    label="TASKS"
-                    isActive={location.pathname === "/tasks"}
-                    to="/tasks"
-                />
-                <NavItem 
-                    icon={
-                        <Image src="/shop.png" className="w-6 h-auto"/>
-                    }
-                    label="SPIN"
-                    isActive={location.pathname === "/spin"}
-                    to="/spin"
-                />
-                <NavItem 
-                    icon={
-                        <Image src="/people.png" className="w-6 h-auto"/>
-                    }
-                    label="FRIENDS"
-                    isActive={location.pathname === "/friends"}
-                    to="/friends"
-                />
-                <NavItem 
-                    icon={
-                        <Image src="/people.png" className="w-6 h-auto"/>
-                    }
-                    label="WALLET"
-                    isActive={location.pathname === "/wallet"}
-                    to="/wallet"
-                />
-            </Box>
-        </nav>
-    )
+          <NavItem
+            icon={<Image src="/home.png" className="w-6 h-auto" />}
+            label={t("navbar.home")}
+            isActive={location.pathname === "/"}
+            to="/"
+          />
+          <NavItem
+            icon={<Image src="/task.png" className="w-6 h-auto" />}
+            label={t("navbar.tasks")}
+            isActive={location.pathname === "/tasks"}
+            to="/tasks"
+          />
+          <NavItem
+            icon={<Image src="/shop.png" className="w-6 h-auto" />}
+            label={t("navbar.spin")}
+            isActive={location.pathname === "/spin"}
+            to="/spin"
+          />
+          <NavItem
+            icon={<Image src="/people.png" className="w-6 h-auto" />}
+            label={t("navbar.friends")}
+            isActive={location.pathname === "/friends"}
+            to="/friends"
+          />
+          <NavItem
+            icon={<Image src="/people.png" className="w-6 h-auto" />}
+            label={t("navbar.wallet")}
+            isActive={location.pathname === "/wallet"}
+            to="/wallet"
+          />
+        </Box>
+      </nav>
+    );
 }
 
 export default NavigationBar

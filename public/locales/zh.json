@@ -1,0 +1,67 @@
+{
+  "homepage": {
+    "daily_signin": "每日签到",
+    "warehouse": "仓库",
+    "auto": "自动",
+    "auto_farm_active": "自动农场机器人已激活...",
+    "farm": "种植",
+    "farming": "正在种植...",
+    "claim_rewards": "领取奖励",
+    "watch_ads": "观看广告",
+    "buy_cat_message": "请购买一只猫来开始挖矿",
+    "level" : "等级 1"
+  },
+   "navbar": {
+    "home": "首页",
+    "tasks": "任务",
+    "spin": "转盘",
+    "friends": "朋友",
+    "wallet": "钱包"
+  },
+  "spinwheel": {
+    "noTickets": "您的票数不足",
+    "spinButton": "旋转并赢取奖品！",
+    "availableSpin": "可用旋转次数",
+    "watchAds": "观看广告获取更多旋转次数",
+    "playNow": "立即游戏"
+  },
+  "friends": {
+    "inviteTitle": "{{invites}} 邀请的朋友",
+    "inviteDescription": "邀请朋友并获得奖励",
+    "reward": "你和你的朋友各得200",
+    "telegramPremium": "邀请带有Telegram Premium的朋友，你和你的朋友各得500",
+    "referralCopied": "推荐链接复制成功",
+    "referralCopyError": "复制推荐链接时出错，请重试",
+    "inviteButton": "邀请朋友"
+  },
+  "dailySignIn": {
+    "title": "今天再次光临我们",
+    "reward": "这是您的奖励",
+    "checkInMessage": "每天签到获取更多奖励",
+    "continue": "继续",
+    "days": [
+      "第01天",
+      "第02天",
+      "第03天",
+      "第04天",
+      "第05天",
+      "第06天",
+      "第07天"
+    ],
+    "rewardAmount": "奖励金币",
+    "totalEarned": "总收入",
+    "claimed": "已领取"
+  },
+   "tasks": {
+    "title": "任务赚取",
+    "subtitle": "完成任务赚取 $MANX",
+    "completeTasksInfo": "完成每3个任务获得一个票券",
+    "claimButton": "领取",
+    "specialTasksTitle": "特殊任务",
+    "uploadTaskTitle": "上传任务",
+    "uploadTaskDescription": "通过背景审查，支付USDT，您的任务将被发布",
+    "applyButton": "申请",
+    "tasksTitle": "任务",
+    "tasksCompletion": "已完成 5 / 30"
+  }
+}

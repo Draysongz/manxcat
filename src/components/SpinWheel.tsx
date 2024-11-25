@@ -3,6 +3,7 @@ import { Box, Button, Flex, useToast } from "@chakra-ui/react";
 import { Wheel } from "react-custom-roulette";
 import { spinWheel } from "../services/apiUsers";
 import { useUserContext } from "../context/UserContext";
+import { useTranslation } from "react-i18next";
 
 import { useAdsgram } from "../hooks/useAdsgram";
 import { ShowPromiseResult } from "../../adsgram";
@@ -28,6 +29,7 @@ const data = [
 ];
 
 export default function Spinwheel() {
+  const {t} = useTranslation()
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
 
@@ -40,7 +42,7 @@ export default function Spinwheel() {
     if (!mustSpin) {
       if (tickets == 0)
         return toast({
-          title: "You do not have enough tickets",
+          title: t("spinwheel.noTickets"),
           colorScheme: "orange",
           position: "top",
         });
@@ -139,13 +141,13 @@ export default function Spinwheel() {
           borderRadius={"20px"}
           _hover={{ bg: "#EB8A90", outline: "none" }}
         >
-          Spin and Win!
+          {t("spinwheel.spinButton")}
         </Button>
 
         <div className="text-[#000807] flex flex-col items-center bg-[#EFD0CA80] w-full pb-4 gap-2">
-          <p className="text-xs font-medium">AVAILABLE SPIN</p>
+          <p className="text-xs font-medium">{t("spinwheel.availableSpin")}</p>
           <p className="text-xl font-extrabold">{tickets}</p>
-          <p className="text-xs font-medium">WATCH ADS TO GET MORE SPINS</p>
+          <p className="text-xs font-medium">{t("spinwheel.watchAds")}</p>
           <ShowAdButton />
           {/* <p className="text-xs font-medium">4 of 5 videos watched</p> */}
         </div>
@@ -155,6 +157,7 @@ export default function Spinwheel() {
 }
 
 function ShowAdButton(): ReactElement {
+  const { t } = useTranslation();
   const onReward = useCallback(() => {
     alert("Reward");
   }, []);
@@ -179,7 +182,7 @@ function ShowAdButton(): ReactElement {
       fontWeight={"800"}
       onClick={showAd}
     >
-      PLAY NOW
+      {t("spinwheel.playNow")}
     </Button>
   );
 }

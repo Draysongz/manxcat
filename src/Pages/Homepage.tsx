@@ -15,9 +15,11 @@ import NavigationBar from "../components/NavigationBar";
 import { useFarm } from "../hooks/useFarm";
 import { useUserContext } from "../context/UserContext";
 import Loader from "../components/ui/Loader";
+import { useTranslation } from "react-i18next";
 import { getAutoFarmUpdate, startAutoFarming } from "../services/apiUsers";
 
 export default function Homepage() {
+    const { t } = useTranslation();
   const {
     isLoading: initializing,
     manxEarned,
@@ -63,7 +65,7 @@ export default function Homepage() {
     if (autoActive) return;
     if (ownedCats.length == 0)
       return toast({
-        title: "Please buy a cat to start mining",
+        title: t("homepage.buy_cat_message"),
         colorScheme: "orange",
         position: "top",
       });
@@ -117,21 +119,12 @@ export default function Homepage() {
                   className="flex flex-col items-center gap-1"
                 >
                   <Image src="/calendar.png" />
-                  <Text className="font-bold text-[9px]">DAILY SIGNIN</Text>
+                  <Text className="font-bold text-[9px]">
+                    {t("homepage.daily_signin")}
+                  </Text>
                 </Link>
               </Box>
-              <Box
-                color={"#000807"}
-                fontWeight={400}
-                fontSize={"10px"}
-                alignItems={"center"}
-                display={"flex"}
-              >
-                <Link to={"/"} className="flex flex-col items-center gap-1">
-                  <Image src="/warehouse.png" />
-                  <Text className="font-bold text-[9px]">WAREHOUSE</Text>
-                </Link>
-              </Box>
+            
               <Box
                 color={"#000807"}
                 fontWeight={400}
@@ -146,7 +139,9 @@ export default function Homepage() {
                 >
                   <Image src="/console.png" />
                   <Flex align={"center"} gap={"1"}>
-                    <Text className="font-bold text-[9px]">AUTO</Text>
+                    <Text className="font-bold text-[9px]">
+                      {t("homepage.auto")}
+                    </Text>
                     <Box
                       background={`${autoActive ? "green.500" : "gray.500"}`}
                       height={"2"}
@@ -167,7 +162,9 @@ export default function Homepage() {
               <Link to={"/levels"}>
                 <Box className="flex justify-center items-center gap-1">
                   <img src="/manx.png" className="w-6 h-6" alt="level 1 cat" />
-                  <Text className="text-base font-bold">Level 1</Text>
+                  <Text className="text-base font-bold">
+                    {t("homepage.level")}
+                  </Text>
                 </Box>
               </Link>
             </Box>
@@ -197,7 +194,7 @@ export default function Homepage() {
             fontSize={"12px"}
             fontWeight={"400"}
           >
-            WATCH ADS
+            {t("homepage.watch_ads")}
             <Image src="/play.png" />
           </Button>
           {autoActive ? (
@@ -212,7 +209,7 @@ export default function Homepage() {
               fontWeight={"400"}
               disabled={autoActive}
             >
-              Auto farm bot activated...
+              {t("homepage.auto_farm_active")}
             </Button>
           ) : (
             <Button
@@ -231,12 +228,12 @@ export default function Homepage() {
                 <Spinner />
               ) : farming ? (
                 ended ? (
-                  "Claim Rewards"
+                  t("homepage.claim_rewards")
                 ) : (
-                  "Farming..."
+                  t("homepage.farming")
                 )
               ) : (
-                "Farm"
+                t("homepage.farm")
               )}
               {farming && (
                 <>

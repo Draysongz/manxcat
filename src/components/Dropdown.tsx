@@ -1,17 +1,27 @@
 import React, { useState } from "react";
+import i18n from "../i18n";
 
 const languages: string[] = ["English", "Chinese"];
 
 const CustomDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleSelect = (language: string) => {
     setSelectedLanguage(language);
+    toggleLang()
     setIsOpen(false); // Close the dropdown after selection
   };
+
+  const toggleLang = async ()=>{
+    if(i18n.language === 'en'){
+       i18n.changeLanguage("zh");
+    }else{
+       i18n.changeLanguage("en");
+    }
+  }
 
   // Filter out the selected rank from the dropdown list
   const filteredRanks = languages.filter((language) => language !== selectedLanguage);

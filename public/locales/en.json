@@ -1,0 +1,68 @@
+{
+  "homepage": {
+    "daily_signin": "DAILY SIGNIN",
+    "warehouse": "WAREHOUSE",
+    "auto": "AUTO",
+    "auto_farm_active": "Auto farm bot activated...",
+    "farm": "Farm",
+    "farming": "Farming...",
+    "claim_rewards": "Claim Rewards",
+    "watch_ads": "WATCH ADS",
+    "buy_cat_message": "Please buy a cat to start mining",
+    "level": "Level 1"
+  },
+  "navbar": {
+    "home": "Home",
+    "tasks": "Tasks",
+    "spin": "Spin",
+    "friends": "Friends",
+    "wallet": "Wallet"
+  },
+   "spinwheel": {
+    "noTickets": "You do not have enough tickets",
+    "spinButton": "Spin and Win!",
+    "availableSpin": "AVAILABLE SPIN",
+    "watchAds": "WATCH ADS TO GET MORE SPINS",
+    "playNow": "PLAY NOW"
+  },
+   "friends": {
+    "inviteTitle": "{{invites}} FRIENDS",
+    "inviteDescription": "Invite a friend and get bonuses",
+    "reward": "200 for you and your friend",
+    "telegramPremium": "500 for you and your friend with Telegram Premium",
+    "referralCopied": "Referral link copied successfully",
+    "referralCopyError": "Error copying referral link, please try again.",
+    "inviteButton": "Invite friends"
+  },
+   "dailySignIn": {
+    "title": "VISITED US TODAY AGAIN",
+    "reward": "Here's your Reward",
+    "checkInMessage": "check in daily to get more rewards",
+    "continue": "CONTINUE",
+    "days": [
+      "DAY 01",
+      "DAY 02",
+      "DAY 03",
+      "DAY 04",
+      "DAY 05",
+      "DAY 06",
+      "DAY 07"
+    ],
+    "rewardAmount": "Reward Coins",
+    "totalEarned": "Total Earned",
+    "claimed": "Claimed"
+  },
+    "tasks": {
+    "title": "TASKS TO EARN",
+    "subtitle": "Complete tasks to earn $MANX",
+    "completeTasksInfo": "Complete every 3 tasks to get a ticket",
+    "claimButton": "CLAIM",
+    "specialTasksTitle": "SPECIAL TASKS",
+    "uploadTaskTitle": "UPLOAD TASK",
+    "uploadTaskDescription": "Pass a background review, pay in USDT and your task will be published",
+    "applyButton": "APPLY",
+    "tasksTitle": "TASKS",
+    "tasksCompletion": "5 / 30 completed"
+  }
+
+}
