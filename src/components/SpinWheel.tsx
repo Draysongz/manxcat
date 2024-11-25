@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, ReactElement } from "react";
 import { Box, Button, Flex, useToast } from "@chakra-ui/react";
 import { Wheel } from "react-custom-roulette";
 import { spinWheel } from "../services/apiUsers";
 import { useUserContext } from "../context/UserContext";
+
+import { useAdsgram } from "../hooks/useAdsgram";
+import { ShowPromiseResult } from "../../adsgram";
 
 const data = [
   { option: "MANX", prob: 8, prize: 2 },
@@ -143,21 +146,40 @@ export default function Spinwheel() {
           <p className="text-xs font-medium">AVAILABLE SPIN</p>
           <p className="text-xl font-extrabold">{tickets}</p>
           <p className="text-xs font-medium">WATCH ADS TO GET MORE SPINS</p>
-          <Button
-            bgColor={"#EFD0CA"}
-            border={"4px solid #000807"}
-            borderRadius={"500px"}
-            w={"60%"}
-            h={"16px"}
-            p={"15px 10px"}
-            fontSize={"12px"}
-            fontWeight={"800"}
-          >
-            PLAY NOW
-          </Button>
-          <p className="text-xs font-medium">4 of 5 videos watched</p>
+          <ShowAdButton />
+          {/* <p className="text-xs font-medium">4 of 5 videos watched</p> */}
         </div>
       </Flex>
     </Box>
+  );
+}
+
+function ShowAdButton(): ReactElement {
+  const onReward = useCallback(() => {
+    alert("Reward");
+  }, []);
+  const onError = useCallback((result: ShowPromiseResult) => {
+    alert(JSON.stringify(result, null, 4));
+  }, []);
+
+  /**
+   * insert your-block-id
+   */
+  const showAd = useAdsgram({ blockId: "5536", onReward, onError });
+
+  return (
+    <Button
+      bgColor={"#EFD0CA"}
+      border={"4px solid #000807"}
+      borderRadius={"500px"}
+      w={"60%"}
+      h={"16px"}
+      p={"15px 10px"}
+      fontSize={"12px"}
+      fontWeight={"800"}
+      onClick={showAd}
+    >
+      PLAY NOW
+    </Button>
   );
 }
