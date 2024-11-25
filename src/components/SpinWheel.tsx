@@ -142,7 +142,7 @@ export default function Spinwheel() {
           Spin and Win!
         </Button>
 
-        <div className="text-[#000807] flex flex-col items-center bg-[#EFD0CA80] w-full py-4 gap-2">
+        <div className="text-[#000807] flex flex-col items-center bg-[#EFD0CA80] w-full pb-4 gap-2">
           <p className="text-xs font-medium">AVAILABLE SPIN</p>
           <p className="text-xl font-extrabold">{tickets}</p>
           <p className="text-xs font-medium">WATCH ADS TO GET MORE SPINS</p>
