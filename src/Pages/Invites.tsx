@@ -4,6 +4,7 @@ import { useUserContext } from "../context/UserContext";
 import { useToast } from "@chakra-ui/react";
 import NavigationBar from "../components/NavigationBar";
 import { useTranslation } from "react-i18next";
+import { initUtils } from "@telegram-apps/sdk";
 
 interface InviteFriendsProps {
   bigcoin: string;
@@ -36,6 +37,18 @@ const Invites = () => {
       desc: t("friends.telegramPremium"),
     },
   ];
+
+   const handleInviteFriend = () => {
+     const utils = initUtils();
+     const inviteLink = `https://t.me/manxcat_bot?start=${referralCode}`;
+     const shareText = `Join me on this awesome Telegram mini app!`;
+     const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(
+       inviteLink
+     )}&text=${encodeURIComponent(shareText)}`;
+     utils.openTelegramLink(fullUrl);
+   };
+
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
@@ -113,7 +126,7 @@ const Invites = () => {
           </div>
         </div>
         <div className="w-full flex justify-between items-center gap-4">
-          <InviteButton name={t("friends.inviteButton")} className="" />
+          <InviteButton name={t("friends.inviteButton")} className="" onClick={handleInviteFriend}/>
           <div
             className="bg-[#F15B061A] py-4 px-5 rounded-full border border-[#EB8A90]"
             onClick={handleCopy}
