@@ -1,7 +1,7 @@
 import axios from "axios";
 import { storage } from "../utils/helpers";
 
-const BASE_URL = "https://c02e-105-112-184-143.ngrok-free.app/api/v1/tasks";
+const BASE_URL = "https://man-x-cat-api.onrender.com/api/v1/tasks";
 
 export type TaskType = "telegram" | "twitter" | "web" | "others";
 
