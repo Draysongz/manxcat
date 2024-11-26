@@ -1,7 +1,7 @@
 import axios from "axios";
 import { storage } from "../utils/helpers";
 
-const BASE_URL = "https://8a67-105-112-184-143.ngrok-free.app/api/v1/users";
+const BASE_URL = "https://51b2-105-112-184-143.ngrok-free.app/api/v1/users";
 
 export type OwnedCatType = {
   catId: string;
