@@ -49,24 +49,36 @@ const Invites = () => {
    };
 
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(
-        `https://t.me/manxcat_bot?start=${referralCode}`
-      );
-      toast({
-        title: t("friends.referralCopied"),
-        colorScheme: "green",
-        position: "top",
-      });
-    } catch {
-      toast({
-        title: t("friends.referralCopyError"),
-        colorScheme: "red",
-        position: "top",
-      });
-    }
-  };
+ const handleCopy = async () => {
+   try {
+     if (navigator.clipboard) {
+       await navigator.clipboard.writeText(
+         `https://t.me/manxcat_bot?start=${referralCode}`
+       );
+     } else {
+       // Fallback for older browsers
+       const textArea = document.createElement("textarea");
+       textArea.value = `https://t.me/manxcat_bot?start=${referralCode}`;
+       document.body.appendChild(textArea);
+       textArea.select();
+       document.execCommand("copy");
+       document.body.removeChild(textArea);
+     }
+
+     toast({
+       title: t("friends.referralCopied"),
+       colorScheme: "green",
+       position: "top",
+     });
+   } catch {
+     toast({
+       title: t("friends.referralCopyError"),
+       colorScheme: "red",
+       position: "top",
+     });
+   }
+ };
+
   return (
     <main className="apply_page-style">
       <div className="flex flex-col items-center px-5 space-y-3 mb-12">
